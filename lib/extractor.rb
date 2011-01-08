@@ -1,4 +1,3 @@
-$LOAD_PATH << './lib'
 require 'word_index'
 require 'nokogiri'
 require 'open-uri'
@@ -28,6 +27,3 @@ class Extractor
   end
   
 end
-
-puts Extractor.new('http://www.quackit.com/html/templates/simple/live-previews/abstractlight/').title_hash
-puts Extractor.new('http://www.cnn.com').title_hash
