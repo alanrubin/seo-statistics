@@ -38,6 +38,18 @@ class Extractor
     attr_extract('head meta[name=Description]', 'content')
   end
   
+  def h1_tags
+    content_extract('body h1')
+  end
+  
+  def h2_tags
+    content_extract('body h2')
+  end
+  
+  def h3_tags
+    content_extract('body h3')
+  end
+  
   def content_hash
     words = WordIndex.new
     @parser.xpath('/*').each do |tag|
