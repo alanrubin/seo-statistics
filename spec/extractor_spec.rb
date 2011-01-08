@@ -22,5 +22,8 @@ describe Extractor do
     it "it should extract h3 tags correctly" do
       Extractor.new(File.new('./spec/fixtures/first.html')).h3_tags.should include('my' => 1, 'third' => 1, 'heading' => 1)
     end
+    it "it should extract links content correctly" do
+      Extractor.new(File.new('./spec/fixtures/first.html')).links.should include('my' => 2, 'first' => 1, 'second' => 1, 'link' => 2)
+    end
   end
 end

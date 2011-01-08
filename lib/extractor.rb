@@ -38,6 +38,10 @@ class Extractor
     attr_extract('head meta[name=Description]', 'content')
   end
   
+  def links
+    content_extract('body a')
+  end
+  
   def h1_tags
     content_extract('body h1')
   end
