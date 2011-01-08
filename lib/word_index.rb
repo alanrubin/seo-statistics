@@ -9,7 +9,7 @@ class WordIndex
       @index[aWord]=@index[aWord]+1
     end
   end
-  def sort
+  def sort!
     @index.sort{|a,b| a[1] <=> b[1]}
   end
   def hash
