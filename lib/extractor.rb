@@ -10,22 +10,6 @@ class Extractor
     @parser = Nokogiri::HTML(open(url))
   end
   
-  def content_extract(selector)
-    words = WordIndex.new
-    @parser.css(selector).each do |title|
-      words.index title.content
-    end
-    words.hash
-  end
-  
-  def attr_extract(selector, attr_name)
-    words = WordIndex.new
-    @parser.css(selector).each do |title|
-      words.index title[attr_name]
-    end
-    words.hash
-  end
-  
   def title
     content_extract('head title')
   end
@@ -54,12 +38,26 @@ class Extractor
     content_extract('body h3')
   end
   
-  def content_hash
+  def all
+    content_extract('/*')
+  end
+  
+  private 
+  
+  def content_extract(selector)
     words = WordIndex.new
-    @parser.xpath('/*').each do |tag|
-      words.index tag.content unless IGNORE.include? tag.name
+    @parser.css(selector).each do |title|
+      words.index title.content
     end
-    words
+    words.hash
+  end
+  
+  def attr_extract(selector, attr_name)
+    words = WordIndex.new
+    @parser.css(selector).each do |title|
+      words.index title[attr_name]
+    end
+    words.hash
   end
   
 end
