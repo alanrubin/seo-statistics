@@ -10,12 +10,32 @@ class Extractor
     @parser = Nokogiri::HTML(open(url))
   end
   
-  def title_hash
+  def content_extract(selector)
     words = WordIndex.new
-    @parser.css('head title').each do |title|
+    @parser.css(selector).each do |title|
       words.index title.content
     end
     words.hash
+  end
+  
+  def attr_extract(selector, attr_name)
+    words = WordIndex.new
+    @parser.css(selector).each do |title|
+      words.index title[attr_name]
+    end
+    words.hash
+  end
+  
+  def title
+    content_extract('head title')
+  end
+  
+  def keywords
+    attr_extract('head meta[name=Keywords]', 'content')
+  end
+  
+  def description
+    attr_extract('head meta[name=Description]', 'content')
   end
   
   def content_hash
