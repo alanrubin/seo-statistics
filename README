@@ -1,5 +1,6 @@
 //TODO
 - TF: Statistics meta-data / title / h1-h2-h3 / links / bold-underline-italic
+! Problem : Bold / Underline / Italic may come from CSS and not from HTML - How to couple with this issue ? We need a web interpreter for that
 - TF/IDF : Universe count from google
 - PageRank
 - Backlinks google

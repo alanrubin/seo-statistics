@@ -39,14 +39,14 @@ class Extractor
   end
   
   def all
-    content_extract('/*')
+    content_extract('/*', :xpath)
   end
   
   private 
   
-  def content_extract(selector)
+  def content_extract(selector, method=:css)
     words = WordIndex.new
-    @parser.css(selector).each do |title|
+    @parser.send(method, selector).each do |title|
       words.index title.content
     end
     words.hash

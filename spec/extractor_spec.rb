@@ -25,5 +25,8 @@ describe Extractor do
     it "it should extract links content correctly" do
       Extractor.new(File.new('./spec/fixtures/first.html')).links.should include('my' => 2, 'first' => 1, 'second' => 1, 'link' => 2)
     end
+    it "should extract all content correctly" do
+      Extractor.new(File.new('./spec/fixtures/first.html')).all.should include('my' => 9, 'first' => 6)
+    end
   end
 end
