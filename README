@@ -1,10 +1,82 @@
-//TODO
-- TF: Statistics meta-data / title / h1-h2-h3 / links / bold-underline-italic
-! Problem : Bold / Underline / Italic may come from CSS and not from HTML - How to couple with this issue ? We need a web interpreter for that
-- TF/IDF : Universe count from google
-- PageRank
-- Backlinks google
-- Word in backlinks
-- Words in URL
-- Rails: Input URL application and display results
+# List of desired statistics
+
+## HTML Page Statistics: 
+
+### METADATA keywords
+**OK** - Words stats (List of words and occurrence)
+**OK** - Word size (How many words - repeated or not)
+**OK** - Word char size
+
+### METADATA description
+- Words stats (List of words and occurrence)
+- Word size (How many words - repeated or not)
+- Word char size
+
+### h1-h2-h3 stats
+- Words stats (List of words and occurence)
+
+### bold-underline-italic stats 
+- Problem : Bold / Underline / Italic may come from CSS and not from HTML : How to couple with this issue ? We need a web interpreter for that --> _For Now Ignore_
+
+### JavaScript size statistics
+
+### Page size
+- Words size
+- Byte size
+
+### Title
+- Words in title
+- Words size in title
+- Title has structure for site (check for different pages)
+
+### Image
+- Image quantity stats
+- Images without alt attribute
+
+### Site Statistics
+- Has sitemap file ?
+- Each page is reachable ?
+- Has unique descriptions for each page ?
+
+### TF/IDF
+- Universe count for a specific query from google : each separate word in search query and together also
+- Document size (for normalization in result) in words number
+
+### Rank
+- Google's PageRank (Option for additional engines: Alexa, Yahoo and others)
+
+### Links
+- links quantity stats
+- backlinks quantity : how many sites point to that url
+- backlinks words stats (process from google cache/from page/from search text)
+- Links with no title attribute between all links
+
+### Indexes : how many pages of a domain are indexed by a particular search engine
+- index quantity 
+- index quantity vs. site real number of pages : a specific grade
+
+# URL
+- url formatting (http://www.test.com/ instead of http://test.com or http://www.test.com )
+- url does not just use ID number
+- url size : url does not use excessive keywords (in chars/in query string parameters)\
+- words quantity
+- slashes quantity : url does not have deep nesting of subdirectories
+- domain type (.com/.us)
+- country
+- technology (asp / php / other)
+- http / https
+
+### Sitemap
+- ???
+
+### Page details
+- When page was updated ? If can get date it was changed from somewhere.
+
+## UI ideas
+- Rails: Input URL application, and Input Query Results and display results
 - Export to CSV file
+
+## Interesting links
+- https://github.com/flyerhzm/seo_checker
+- http://www.seomoz.org/blog/the-web-developers-seo-cheat-sheet (https://github.com/erwaller/seo-analyzer)
+- https://github.com/atomiczagnut/SEO-Tools
