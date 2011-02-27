@@ -15,11 +15,19 @@ class Extractor
   end
   
   def keywords
-    attr_extract('head meta[name=Keywords]', 'content')
+    attr_extract('head meta[name=Keywords]', 'content').first
+  end
+  
+  def keywords_count
+    attr_extract('head meta[name=Keywords]', 'content').first.inject(0) {|sum, n| sum + n.last }
+  end
+  
+  def keywords_chars
+    attr_extract('head meta[name=Keywords]', 'content').last.size
   end
   
   def description
-    attr_extract('head meta[name=Description]', 'content')
+    attr_extract('head meta[name=Description]', 'content').first
   end
   
   def links
@@ -54,10 +62,11 @@ class Extractor
   
   def attr_extract(selector, attr_name)
     words = WordIndex.new
+    phrase = ""
     @parser.css(selector).each do |title|
-      words.index title[attr_name]
+      phrase << (words.index title[attr_name])
     end
-    words.hash
+    [words.hash, phrase]
   end
   
 end

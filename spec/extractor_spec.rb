@@ -1,4 +1,4 @@
-$LOAD_PATH << File.expand_path(File.dirname(__FILE__) + '/../lib')
+#$LOAD_PATH << File.join(File.expand_path(File.dirname(__FILE__) , '..', 'lib')
 
 require 'extractor'
 
@@ -11,8 +11,16 @@ describe Extractor do
     it "should extract title correctly" do
       @html.title.should include('my' => 2, 'first' => 2, 'title' => 2)
     end
-    it "should extract meta keywords tag correctly" do
-      @html.keywords.should include('my' => 2, 'keywords' => 2)
+    context "when dealing with meta keywords" do
+      it "should extract words frequency" do
+        @html.keywords.should include('my' => 2, 'keywords' => 2)
+      end
+      it "should extract words count" do
+        @html.keywords_count.should eq(4)
+      end
+      it "should extract words char size" do
+        @html.keywords_chars.should eq(24)
+      end
     end
     it "should extract meta description tag correctly" do
       @html.description.should include('my' => 2, 'description' => 2)
