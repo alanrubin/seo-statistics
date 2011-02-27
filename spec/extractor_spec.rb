@@ -12,14 +12,17 @@ describe Extractor do
       @html.title.should include('my' => 2, 'first' => 2, 'title' => 2)
     end
     context "when dealing with meta keywords" do
+      before(:each) do
+        @keywords = @html.keywords
+      end
       it "should extract words frequency" do
-        @html.keywords.should include('my' => 2, 'keywords' => 2)
+        @keywords[:frequency].should include('my' => 2, 'keywords' => 2)
       end
       it "should extract words count" do
-        @html.keywords_count.should eq(4)
+        @keywords[:word_count].should eq(4)
       end
       it "should extract words char size" do
-        @html.keywords_chars.should eq(24)
+        @keywords[:char_count].should eq(24)
       end
     end
     it "should extract meta description tag correctly" do

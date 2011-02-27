@@ -15,15 +15,10 @@ class Extractor
   end
   
   def keywords
-    attr_extract('head meta[name=Keywords]', 'content').first
-  end
-  
-  def keywords_count
-    attr_extract('head meta[name=Keywords]', 'content').first.inject(0) {|sum, n| sum + n.last }
-  end
-  
-  def keywords_chars
-    attr_extract('head meta[name=Keywords]', 'content').last.size
+    keywords = attr_extract('head meta[name=Keywords]', 'content') 
+    { :frequency => keywords.first, 
+      :word_count => keywords.first.inject(0) {|sum, element| sum + element.last },
+      :char_count => keywords.last.size }
   end
   
   def description
