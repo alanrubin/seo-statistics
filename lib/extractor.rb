@@ -15,14 +15,14 @@ class Extractor
   end
   
   def keywords
-    keywords = attr_extract('head meta[name=Keywords]', 'content') 
+    keywords = attr_extract('head meta', 'keywords', 'content') 
     { :frequency => keywords.first, 
       :word_count => keywords.first.inject(0) {|sum, element| sum + element.last },
       :char_count => keywords.last.size }
   end
   
   def description
-    description = attr_extract('head meta[name=Description]', 'content') 
+    description = attr_extract('head meta', 'description', 'content') 
     { :frequency => description.first, 
       :word_count => description.first.inject(0) {|sum, element| sum + element.last },
       :char_count => description.last.size }
@@ -58,11 +58,11 @@ class Extractor
     words.hash
   end
   
-  def attr_extract(selector, attr_name)
+  def attr_extract(selector, attr_selector, attr_name)
     words = WordIndex.new
     phrase = ""
     @parser.css(selector).each do |title|
-      phrase << (words.index title[attr_name])
+      phrase << (words.index title[attr_name]) if title['name'].downcase == attr_selector
     end
     [words.hash, phrase]
   end
