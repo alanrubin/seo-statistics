@@ -25,8 +25,19 @@ describe Extractor do
         @keywords[:char_count].should eq(24)
       end
     end
-    it "should extract meta description tag correctly" do
-      @html.description.should include('my' => 2, 'description' => 2)
+    context "when dealing with meta description" do
+      before(:each) do
+        @description = @html.description
+      end
+      it "should extract words frequency" do
+        @description[:frequency].should include('my' => 2, 'description' => 2)
+      end
+      it "should extract words count" do
+        @description[:word_count].should eq(4)
+      end
+      it "should extract words char size" do
+        @description[:char_count].should eq(30)
+      end
     end
     it "should extract h1 tags correctly" do
       @html.h1_tags.should include('my' => 2, 'first' => 2, 'heading' => 2)

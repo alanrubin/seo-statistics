@@ -8,9 +8,9 @@
 **OK** - Word char size
 
 ### METADATA description
-- Words stats (List of words and occurrence)
-- Word size (How many words - repeated or not)
-- Word char size
+**OK** - Words stats (List of words and occurrence)
+**OK** - Word size (How many words - repeated or not)
+**OK** - Word char size
 
 ### h1-h2-h3 stats
 - Words stats (List of words and occurence)

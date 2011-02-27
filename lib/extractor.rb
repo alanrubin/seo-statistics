@@ -22,7 +22,10 @@ class Extractor
   end
   
   def description
-    attr_extract('head meta[name=Description]', 'content').first
+    description = attr_extract('head meta[name=Description]', 'content') 
+    { :frequency => description.first, 
+      :word_count => description.first.inject(0) {|sum, element| sum + element.last },
+      :char_count => description.last.size }
   end
   
   def links
