@@ -22,6 +22,17 @@ describe Extractor do
         @title[:char_count].should eq(29)
       end
     end
+    context "when dealing with images" do
+      before(:each) do
+        @images = @html.images
+      end
+      it "should retrieve number of images in page" do
+        @images[:count].should eq(4)
+      end
+      it "should retrieve images with alt attribute" do
+        @images[:alt_count].should eq(3)
+      end
+    end
     context "when dealing with meta keywords" do
       before(:each) do
         @keywords = @html.keywords

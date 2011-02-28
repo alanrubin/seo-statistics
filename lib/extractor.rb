@@ -17,6 +17,14 @@ class Extractor
       :char_count => title.last.strip.size } # Normalizing title : strip blank spaces around title
   end
   
+  def images
+    @parser.css('img').inject({:count => 0, :alt_count => 0}) do |hash, image|
+      hash[:alt_count] += 1 unless image['alt'].nil?
+      hash[:count] += 1
+      hash
+    end
+  end
+  
   def keywords
     keywords = attr_extract('head meta', 'keywords', 'content') 
     { :frequency => keywords.first, 
