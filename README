@@ -13,12 +13,14 @@
 **OK** - Word char size
 
 ### h1-h2-h3 stats
-- Words stats (List of words and occurence)
+**OK** - Words stats (List of words and occurrence)
 
 ### bold-underline-italic stats 
-- Problem : Bold / Underline / Italic may come from CSS and not from HTML : How to couple with this issue ? We need a web interpreter for that --> _For Now Ignore_
+**IGNORE** - Problem : Bold / Underline / Italic may come from CSS and not from HTML : How to couple with this issue ? We need a web interpreter for that --> _For Now Ignore_
 
-### JavaScript size statistics
+### JavaScript statistics
+**OK** - Inline Char Size
+- Total (inline + script src links) Char Size
 
 ### Page size
 - Words size
@@ -50,6 +52,7 @@
 - backlinks quantity : how many sites point to that url
 - backlinks words stats (process from google cache/from page/from search text)
 - Links with no title attribute between all links
+- How much links in page for js/css files
 
 ### Indexes : how many pages of a domain are indexed by a particular search engine
 - index quantity 
@@ -71,6 +74,8 @@
 
 ### Page details
 - When page was updated ? If can get date it was changed from somewhere.
+- Page loading complete size (including js, css, images and all other content)
+- Page only size (only page html)
 
 ## UI ideas
 - Rails: Input URL application, and Input Query Results and display results

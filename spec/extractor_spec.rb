@@ -39,6 +39,9 @@ describe Extractor do
         @description[:char_count].should eq(30)
       end
     end
+    it "should extract javascript char size" do
+      @html.js_size.should eq(130);
+    end
     it "should extract h1 tags correctly" do
       @html.h1_tags.should include('my' => 2, 'first' => 2, 'heading' => 2)
     end

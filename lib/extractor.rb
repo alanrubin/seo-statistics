@@ -28,6 +28,14 @@ class Extractor
       :char_count => description.last.size }
   end
   
+  def js_size
+    # TODO Take in consideration scripts that are not inline (with src attribute, retrieve script for size)
+    # TODO Maybe do it for page statistics - how much total bytes to load
+    @parser.css('script').inject(0) do |sum, js_line|
+      sum + js_line.content.size
+    end
+  end
+  
   def links
     content_extract('body a')
   end
