@@ -24,7 +24,8 @@
 
 ### Page size
 - Words size
-- Byte size
+- Char size (without resources)
+- Page loading complete size (including js, css, images and all other content)
 
 ### Title
 **OK** - Words in title (List of words and occurrence)
@@ -75,8 +76,6 @@
 
 ### Page details
 - When page was updated ? If can get date it was changed from somewhere.
-- Page loading complete size (including js, css, images and all other content)
-- Page only size (only page html)
 
 ## UI ideas
 - Rails: Input URL application, and Input Query Results and display results
