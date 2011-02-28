@@ -11,7 +11,10 @@ class Extractor
   end
   
   def title
-    content_extract('head title')
+    title = content_extract('head title') 
+    { :frequency => title.first, 
+      :word_count => title.first.inject(0) {|sum, element| sum + element.last },
+      :char_count => title.last.strip.size } # Normalizing title : strip blank spaces around title
   end
   
   def keywords
@@ -37,33 +40,34 @@ class Extractor
   end
   
   def links
-    content_extract('body a')
+    content_extract('body a').first
   end
   
   def h1_tags
-    content_extract('body h1')
+    content_extract('body h1').first
   end
   
   def h2_tags
-    content_extract('body h2')
+    content_extract('body h2').first
   end
   
   def h3_tags
-    content_extract('body h3')
+    content_extract('body h3').first
   end
   
   def all
-    content_extract('/*', :xpath)
+    content_extract('/*', :xpath).first
   end
   
   private 
   
   def content_extract(selector, method=:css)
     words = WordIndex.new
+    content = ""
     @parser.send(method, selector).each do |title|
-      words.index title.content
+      content << (words.index title.content)
     end
-    words.hash
+    [words.hash, content]
   end
   
   def attr_extract(selector, attr_selector, attr_name)

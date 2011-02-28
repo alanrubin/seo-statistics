@@ -8,8 +8,19 @@ describe Extractor do
   end
   
   context "when extracting html content" do
-    it "should extract title correctly" do
-      @html.title.should include('my' => 2, 'first' => 2, 'title' => 2)
+    context "dealing with head title" do
+      before(:each) do
+        @title = @html.title
+      end
+      it "should extract words frequency" do
+        @title[:frequency].should include('my' => 2, 'first' => 2, 'title' => 2)
+      end
+      it "should extract words count" do
+        @title[:word_count].should eq(6)
+      end
+      it "should extract words char size" do
+        @title[:char_count].should eq(29)
+      end
     end
     context "when dealing with meta keywords" do
       before(:each) do

@@ -27,8 +27,9 @@
 - Byte size
 
 ### Title
-- Words in title
-- Words size in title
+**OK** - Words in title (List of words and occurrence)
+**OK** - Words size in title (How many words - repeated or not)
+**OK** - Words char size (Title is being normalized - string is trimmed before char count)
 - Title has structure for site (check for different pages)
 
 ### Image
