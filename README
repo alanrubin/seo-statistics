@@ -24,8 +24,9 @@
 
 ### Page statistics
 **OK** - Words stats (List of words and occurrence)
-- Words size (How many words - repeated or not)
-- Page Char size (without resources)
+**OK** - Words size (How many words - repeated or not)
+**OK** - Page Text Char size (without resources and tags)
+**OK** - Page Byte size (without resources but including tags)
 - Page loading complete size (including js, css, images and all other content)
 
 ### Title

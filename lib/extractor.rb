@@ -7,7 +7,8 @@ class Extractor
   IGNORE = ['script']
   
   def initialize(url)
-    @parser = Nokogiri::HTML(open(url))
+    @resource = open(url)
+    @parser = Nokogiri::HTML(@resource)
   end
   
   def title
@@ -67,7 +68,9 @@ class Extractor
     page = content_extract('*', :css, IGNORE)
     { :frequency => page.first,
       :word_count => page.first.inject(0) {|sum, element| sum + element.last },
-      :char_count => page.last.strip.size }
+      :char_count => { 
+        :text => page.last.strip.size,
+        :byte => @resource.size } }
   end
   
   private 
