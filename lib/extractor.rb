@@ -63,17 +63,17 @@ class Extractor
     content_extract('body h3').first
   end
   
-  def all
-    content_extract('/*', :xpath).first
+  def page
+    { :frequency => content_extract('*', :css, IGNORE).first }
   end
   
   private 
   
-  def content_extract(selector, method=:css)
+  def content_extract(selector, method=:css, exclude=[])
     words = WordIndex.new
     content = ""
     @parser.send(method, selector).each do |title|
-      content << (words.index title.content)
+      content << words.index(title.xpath('child::text()').to_s) unless exclude.include?(title.name)
     end
     [words.hash, content]
   end

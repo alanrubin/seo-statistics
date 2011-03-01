@@ -76,8 +76,13 @@ describe Extractor do
     it "should extract links content correctly" do
       @html.links.should include('my' => 2, 'first' => 1, 'second' => 1, 'link' => 2)
     end
-    it "should extract all content correctly" do
-      @html.all.should include('my' => 9, 'first' => 6)
+    context "when dealing with page content" do
+      it "should extract words frequency" do
+        @html.page[:frequency].should include('my' => 9, 'first' => 6)
+      end
+      it "should not include words inside script tags" do
+        @html.page[:frequency].should_not include('console')
+      end
     end
   end
 end
