@@ -22,9 +22,10 @@
 **OK** - Inline Char Size
 - Total (inline + script src links) Char Size
 
-### Page size
-- Words size
-- Char size (without resources)
+### Page statistics
+**OK** - Words stats (List of words and occurrence)
+- Words size (How many words - repeated or not)
+- Page Char size (without resources)
 - Page loading complete size (including js, css, images and all other content)
 
 ### Title
@@ -71,11 +72,16 @@
 - technology (asp / php / other)
 - http / https
 
+# Query String
+- Query: If query words are inside url (substrings)
+- How many query words are inside url, document, etc
+- Backlinks contain query string
+
 ### Sitemap
 - ???
 
 ### Page details
-- When page was updated ? If can get date it was changed from somewhere.
+- When page was updated ? If can get date it was changed from somewhere. (Headers ? Learn more about headers cache)
 
 ## UI ideas
 - Rails: Input URL application, and Input Query Results and display results
@@ -85,3 +91,7 @@
 - https://github.com/flyerhzm/seo_checker
 - http://www.seomoz.org/blog/the-web-developers-seo-cheat-sheet (https://github.com/erwaller/seo-analyzer)
 - https://github.com/atomiczagnut/SEO-Tools
+
+# Meeting : 1.3.2011 
+## How much time takes to download (100 first results)
+## How to choose relevant words (Google trends/Dictionary)
