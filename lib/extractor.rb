@@ -64,7 +64,10 @@ class Extractor
   end
   
   def page
-    { :frequency => content_extract('*', :css, IGNORE).first }
+    page = content_extract('*', :css, IGNORE)
+    { :frequency => page.first,
+      :word_count => page.first.inject(0) {|sum, element| sum + element.last },
+      :char_count => page.last.strip.size }
   end
   
   private 

@@ -92,6 +92,10 @@
 - http://www.seomoz.org/blog/the-web-developers-seo-cheat-sheet (https://github.com/erwaller/seo-analyzer)
 - https://github.com/atomiczagnut/SEO-Tools
 
+# Normalization Guidelines
+- Always strip blank spaces around strings when possible
+- Does not consider script text in word frequency count
+
 # Meeting : 1.3.2011 
 ## How much time takes to download (100 first results)
 ## How to choose relevant words (Google trends/Dictionary)

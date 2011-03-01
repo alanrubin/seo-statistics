@@ -77,11 +77,20 @@ describe Extractor do
       @html.links.should include('my' => 2, 'first' => 1, 'second' => 1, 'link' => 2)
     end
     context "when dealing with page content" do
+      before(:each) do
+        @page = @html.page
+      end
       it "should extract words frequency" do
-        @html.page[:frequency].should include('my' => 9, 'first' => 6)
+        @page[:frequency].should include('my' => 9, 'first' => 6)
       end
       it "should not include words inside script tags" do
-        @html.page[:frequency].should_not include('console')
+        @page[:frequency].should_not include('console')
+      end
+      it "should extract word count" do
+        @page[:word_count].should eq(27)
+      end
+      it "should extract char count" do
+        @page[:char_count].should eq(227)
       end
     end
   end
