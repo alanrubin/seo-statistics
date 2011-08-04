@@ -1,6 +1,6 @@
 = seo-statistics
 
-Description goes here.
+Try to compute interesting different seo statistics for a webpage.
 
 == Contributing to seo-statistics
  
