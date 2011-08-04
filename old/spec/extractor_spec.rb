@@ -90,7 +90,7 @@ describe Extractor do
         @page[:word_count].should eq(27)
       end
       it "should extract text count" do
-        @page[:char_count][:text].should eq(227)
+        @page[:char_count][:text].should eq(226)
       end
       it "should extract byte count" do
         @page[:char_count][:byte].should eq(1358)

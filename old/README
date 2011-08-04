@@ -65,8 +65,8 @@
 # URL
 - url formatting (http://www.test.com/ instead of http://test.com or http://www.test.com )
 - url does not just use ID number
-- url size : url does not use excessive keywords (in chars/in query string parameters)\
-- words quantity
+- url size : url does not use excessive keywords (in chars/in query string parameters)
+- words quantity : search query term occurrence in the url (See query string item seems similar)
 - slashes quantity : url does not have deep nesting of subdirectories
 - domain type (.com/.us)
 - country
@@ -95,6 +95,7 @@
 - https://github.com/blatyo/is_it_popular
 - https://github.com/blatyo/page_rankr
 - https://github.com/dbalatero/typhoeus
+- http://www.google.com/support/webmasters/bin/answer.py?answer=35769
 
 # Normalization Guidelines
 - Always strip blank spaces around strings when possible
