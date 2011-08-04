@@ -1,6 +1,4 @@
-$LOAD_PATH << File.join(File.expand_path(File.dirname(__FILE__) , '..', 'lib')
-
-require 'word_index'
+require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe WordIndex do
   context "when initialized" do
@@ -9,7 +7,7 @@ describe WordIndex do
     end
   end
   context "when indexing phrase" do
-    it "should index no matter case" do
+    it "should count the same no matter word case" do
       words = WordIndex.new
       words.index('Alan Rubin')
       words.index('ALAN RUBIN')
