@@ -15,5 +15,13 @@ describe WordIndex do
       words.hash['alan'].should eq 2
       words.hash['rubin'].should eq 2
     end
+    it "should count only selected tags" do
+      words = WordIndex.new
+      words.index('Alan Rubin', ['alan'])
+      words.index('ALAN RUBIN', ['alan'])
+      words.hash.size.should eq 1
+      words.hash['alan'].should eq 2
+      words.hash['rubin'].should be_nil
+    end
   end
 end

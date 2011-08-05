@@ -1,21 +1,24 @@
 require File.join(File.dirname(__FILE__), "helpers", "word_index")
+require 'nokogiri'
                                                                  
 module SeoStatistics
-  class Helper
+  class Page
     def initialize(url)
       @resource = open(url)
       @parser = Nokogiri::HTML(@resource)  
     end
     
-    def content_extract(selector, method=:css, exclude=[])
+    def content_extract(selector, method=:css, exclude_tags=nil, include_only_content=nil)
       words = WordIndex.new
       content = ""
       @parser.dup.send(method, selector).each do |title|
+        
         # excluding excluded tags
-        exclude.each do |out_tags|
+        exclude_tags.each do |out_tags|
           title.search(out_tags).remove
-        end
-        content << words.index(title.content)
+        end unless exclude_tags.nil?
+        
+        content << words.index(title.content, include_only_content)
       end
       [words.hash, content]
     end
