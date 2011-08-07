@@ -37,11 +37,11 @@ module SeoStatistics
       [words.hash, phrase]
     end
                  
-    def word_size
+    def words_size
       content_extract('html', :css, IGNORE).first.inject(0) {|sum, element| sum + element.last }
     end
     
-    def char_size
+    def chars_size
       {
         :size => content_extract('html', :css, IGNORE).last.strip.size,
         :byte => resource.size 

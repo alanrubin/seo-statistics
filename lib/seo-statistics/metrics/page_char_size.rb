@@ -1,7 +1,7 @@
 class PageCharSize
   
   def run(page, search)
-    page.char_size[:size]
+    page.chars_size[:size]
   end
   
   def name                                                                        

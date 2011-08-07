@@ -8,11 +8,11 @@ describe "SeoStatistics" do
     end
     
     it "should retrieve page words size" do
-      @page.word_size.should eq(27)
+      @page.words_size.should eq(27)
     end
     
     it "should retrieve page char count in size and bytes" do
-      size = @page.char_size
+      size = @page.chars_size
       size[:size].should eq(226)
       size[:byte].should eq(1358)
     end
