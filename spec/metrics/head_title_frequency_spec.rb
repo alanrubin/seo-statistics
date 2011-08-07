@@ -1,10 +1,10 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "MetricsPlugins" do
   describe HeadTitleFrequency do
   
     before(:each) do
-      @page = SeoStatistics::Page.new(File.new(File.dirname(__FILE__) + '/fixtures/first.html'))
+      @page = SeoStatistics::Page.new(File.new(File.dirname(__FILE__) + '/../fixtures/first.html'))
     end
   
     it "should have empty frequency if search words are not found" do
