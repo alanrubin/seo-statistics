@@ -4,6 +4,9 @@ coverage
 # rdoc generated
 rdoc
 
+# MAC DS_Store
+.DS_Store
+
 # yard generated
 doc
 .yardoc
