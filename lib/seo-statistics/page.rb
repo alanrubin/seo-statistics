@@ -4,7 +4,9 @@ require 'nokogiri'
 module SeoStatistics
   class Page
     
-    attr_reader :parser
+    IGNORE = ['script']
+    
+    attr_reader :parser, :resource
     
     def initialize(url)
       @resource = open(url)
@@ -33,6 +35,18 @@ module SeoStatistics
         phrase << (words.index title[attr_name], include_only_content) if title['name'] && title['name'].downcase == attr_selector
       end
       [words.hash, phrase]
+    end
+                 
+    def word_size
+      content_extract('html', :css, IGNORE).first.inject(0) {|sum, element| sum + element.last }
+    end
+    
+    def char_size
+      {
+        :size => content_extract('html', :css, IGNORE).last.strip.size,
+        :byte => resource.size 
+      }
     end  
+  
   end
 end
