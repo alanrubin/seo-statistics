@@ -1,0 +1,44 @@
+Hi Sara,
+
+He is my todos:
+
+A) list of features and how to compute statistics
+DONE: 11. Search occurrence in head title: Number of occurrence of search words in head title tag
+DONE: 1. Search occurrence in metadata keywords: Number of occurrence of search words in metadata head keywords tag
+DONE: 4. Search occurrence in metadata description: Number of occurrence of search words in metadata head description tag
+DONE: 7. Search occurrence in h1/h2/h3 tags: Number of occurrence of search words in h1/h2/h3 tags
+DONE: 8. Char size of javascript inline code: Number of chars in javascript code inline in page
+DONE (NORMALIZE ?): 9. Search occurrence in page: Number of occurrence of search words in whole page (can be divided by number of words in page for normalization)
+DONE: 10. Size of Page: number of chars in page
+
+12. Words in head title: Number of words in head title
+14. Has sitemap file: True or false
+15. TF/IDF based on number of universe results from google and page word count
+16. PageRank from Google / Alexa / Bing / Yahoo: An integer for each search provider (0-10). Do you think we need to divide it in multiple metrics ?
+17. Backlinks from Google / Alexa / Bing / Yahoo: How many sites points to our website, an integer - the highest the better. Do you think we need to divide it in multiple metrics ?
+18. Indexes from Google / Alexa / Bing / Yahoo: How many pages of a domain are indexed by a particular engine. An integer - the highest the better. Do you think we need to divide it in multiple metrics ? Maybe we need to normalize with the number the pages in a domain.
+19. Url size. Site of the url (maybe we could compare with size of the search query). An integer, maybe use the query size to try to define an acceptable interval for size, as too short or too long is probably bad.
+20. Search terms occurrence in url. An integer - the more the better
+21. Slashes quantity in url (Depth). Deep nesting is probably bad for url. An integer, the less the better.
+22. How many links in the page. The more the worst. An integer
+23. How many broken links in the page. The more the worst. An integer
+24. Number of query strings elements in the site url. The more the worst. An integer.
+25. Site has a robots.txt file. True or false.
+26. Number of resources requested in page. Do you think is necessary also to scan for resources size ? (could be a time issue, as I would need to scan for many resources)
+
+Questions:
+1. Do you think we need to use also word and char size metrics ? One of them could be suficient (Items 2,3 - 5,6 - 12,13). If we want to use of them, would we use char or word count ?
+2. Do you think we can use PageRank metrics from other sites other then google ? If we are focusing in google in our research, I don't think google uses pagerank of other sites for its search results.
+3. Do you think we should invest more in sitemap file statistics and robots.txt file statistics ? Do you think we need to make a deep investigation in those files ?
+
+B) 
+1) This nice services http://coyotecult.com/tools/randomwordgenerator.php and http://www.1984produkts.com/donkeyhottie/showsomewords.php will provide us with some words. Just run and use the words...
+
+2) For frequent queries, we could use the new insights in google - we can filter the query trends by specific category thus maybe avoid news sites influence. The url is http://www.google.com/insights. Let's say we can choose some different categories and for each of them retrieve a number of queries. 
+
+Other option is to go with google trends queries, but making some special processing: if we detect that the first 5 results for each query comes from news services, we can throw the query out of our results list. This can be easier todo, as we can make it automatically without any human interaction.
+
+What do you think ?
+
+Thanks,
+Alan
