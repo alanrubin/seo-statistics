@@ -23,11 +23,11 @@ module SeoStatistics
       [words.hash, content]
     end
 
-    def attr_extract(selector, attr_selector, attr_name)
+    def attr_extract(selector, attr_selector, attr_name, include_only_content=nil)
       words = WordIndex.new
       phrase = ""
         @parser.css(selector).each do |title|
-        phrase << (words.index title[attr_name]) if title['name'] && title['name'].downcase == attr_selector
+        phrase << (words.index title[attr_name], include_only_content) if title['name'] && title['name'].downcase == attr_selector
       end
       [words.hash, phrase]
     end  
